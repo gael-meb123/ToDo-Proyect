@@ -32,16 +32,16 @@ export default class View {
   }
 
   refreshTagFilters(todos = this.model.getTodos()) {
-    const tags = new Set();
-    todos.forEach((todo) => {
-      (todo.tags || []).forEach((tag) => tags.add(tag));
-    });
+  const tags = new Set();
+  todos.forEach((todo) => {
+    (todo.tags || []).forEach((tag) => tags.add(tag));
+  });
 
-    this.filters.setTagOptions(
-      Array.from(tags).sort((a, b) => a.localeCompare(b)),
-      this.currentFilters.tag,
-    );
-  }
+  this.filters.setTagOptions(
+    Array.from(tags).sort((a, b) => a.localeCompare(b)),
+    this.currentFilters.tag,
+  );
+}
 
   filter(filters) {
     this.currentFilters = {
