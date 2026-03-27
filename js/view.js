@@ -94,16 +94,16 @@ export default class View {
   }
 
   editTodo(id, values) {
-    this.model.editTodo(id, values);
-    const row = document.getElementById(id);
-    row.children[0].innerText = values.title;
-    row.children[1].innerText = values.description;
-    this.renderTags(row.children[2], values.tags);
-    row.dataset.tags = values.tags.join(',');
-    row.children[3].children[0].checked = values.completed;
-    this.refreshTagFilters();
-    this.filter(this.currentFilters);
-  }
+  this.model.editTodo(id, values);
+  const row = document.getElementById(id);
+  row.children[0].innerText = values.title;
+  row.children[1].innerText = values.description;
+  this.renderTags(row.children[2], values.tags);
+  row.dataset.tags = values.tags.join(',');
+  row.children[3].children[0].checked = values.completed;
+  this.refreshTagFilters();
+  this.filter(this.currentFilters);
+}
 
   removeTodo(id) {
     this.model.removeTodo(id);
