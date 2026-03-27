@@ -82,6 +82,33 @@ export default class View {
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   addTodo(title, description, tags) {
     const todo = this.model.addTodo(title, description, tags);
     this.createRow(todo);
