@@ -22,12 +22,6 @@ export default class Model {
     }
   }
 
-
-
-
-
-
-  
   setView(view) {
     this.view = view;
   }

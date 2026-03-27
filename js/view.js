@@ -25,16 +25,6 @@ export default class View {
     this.model = model;
   }
 
-
-
-
-
-
-
-
-
-  
-
   render() {
     const todos = this.model.getTodos();
     this.refreshTagFilters(todos);
