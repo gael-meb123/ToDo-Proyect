@@ -83,11 +83,11 @@ export default class View {
   }
 
   addTodo(title, description, tags) {
-    const todo = this.model.addTodo(title, description, tags);
-    this.createRow(todo);
-    this.refreshTagFilters();
-    this.filter(this.currentFilters);
-  }
+  const todo = this.model.addTodo(title, description, tags);
+  this.createRow(todo);
+  this.refreshTagFilters();
+  this.filter(this.currentFilters);
+}
 
   toggleCompleted(id) {
     this.model.toggleCompleted(id);
