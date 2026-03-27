@@ -106,11 +106,11 @@ export default class View {
 }
 
   removeTodo(id) {
-    this.model.removeTodo(id);
-    document.getElementById(id).remove();
-    this.refreshTagFilters();
-    this.filter(this.currentFilters);
-  }
+  this.model.removeTodo(id);
+  document.getElementById(id).remove();
+  this.refreshTagFilters();
+  this.filter(this.currentFilters);
+}
 
   renderTags(cell, tags) {
   cell.innerHTML = '';
