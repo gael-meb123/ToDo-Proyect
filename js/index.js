@@ -8,4 +8,5 @@ document.addEventListener('DOMContentLoaded', () => {
   view.setModel(model);
 
   view.render();
+  
 });
