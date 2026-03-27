@@ -8,7 +8,7 @@ export default class AddTodo {
     this.tags = document.getElementById('tags');
 
     this.alert = new Alert('alert');
-    hola mundo2
+    hola mundo23
   }
 
   parseTags(rawTags) {
