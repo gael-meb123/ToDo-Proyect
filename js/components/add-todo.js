@@ -5,17 +5,30 @@ export default class AddTodo {
     this.btn = document.getElementById('add');
     this.title = document.getElementById('title');
     this.description = document.getElementById('description');
+    this.tags = document.getElementById('tags');
 
     this.alert = new Alert('alert');
   }
 
+  parseTags(rawTags) {
+    const tags = rawTags
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== '');
+
+    return Array.from(new Set(tags));
+  }
+
   onClick(callback) {
     this.btn.onclick = () => {
-      if (title.value === '' || description.value === '') {
+      if (this.title.value === '' || this.description.value === '') {
         this.alert.show('Title and description are required');
       } else {
         this.alert.hide();
-        callback(this.title.value, this.description.value);
+        callback(this.title.value, this.description.value, this.parseTags(this.tags.value));
+        this.title.value = '';
+        this.description.value = '';
+        this.tags.value = '';
       }
     }
   }

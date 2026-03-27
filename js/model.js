@@ -8,11 +8,16 @@ export default class Model {
           id: 0,
           title: 'Learn JS',
           description: 'Watch JS Tutorials',
+          tags: ['study'],
           completed: false,
         }
       ]
       this.currentId = 1;
     } else {
+      this.todos = this.todos.map((todo) => ({
+        ...todo,
+        tags: Array.isArray(todo.tags) ? todo.tags : [],
+      }));
       this.currentId = this.todos[this.todos.length - 1].id + 1;
     }
   }
@@ -46,16 +51,16 @@ export default class Model {
     this.save();
   }
 
-  addTodo(title, description) {
+  addTodo(title, description, tags = []) {
     const todo = {
       id: this.currentId++,
       title,
       description,
+      tags,
       completed: false,
     }
 
     this.todos.push(todo);
-    console.log(this.todos);
     this.save();
 
     return {...todo};
