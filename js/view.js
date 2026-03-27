@@ -113,20 +113,20 @@ export default class View {
   }
 
   renderTags(cell, tags) {
-    cell.innerHTML = '';
+  cell.innerHTML = '';
 
-    if (!tags || tags.length === 0) {
-      cell.innerHTML = '<span class="text-muted">No tags</span>';
-      return;
-    }
-
-    tags.forEach((tag) => {
-      const badge = document.createElement('span');
-      badge.classList.add('badge', 'badge-info', 'mr-1');
-      badge.innerText = tag;
-      cell.appendChild(badge);
-    });
+  if (!tags || tags.length === 0) {
+    cell.innerHTML = '<span class="text-muted">No tags</span>';
+    return;
   }
+
+  tags.forEach((tag) => {
+    const badge = document.createElement('span');
+    badge.classList.add('badge', 'badge-info', 'mr-1');
+    badge.innerText = tag;
+    cell.appendChild(badge);
+  });
+}
 
   createRow(todo) {
     const row = this.table.insertRow();
@@ -144,13 +144,21 @@ export default class View {
       </td>
     `;
 
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.checked = todo.completed;
-    checkbox.onclick = () => this.toggleCompleted(todo.id);
-    row.children[3].appendChild(checkbox);
+    renderTags(cell, tags) {
+  cell.innerHTML = '';
 
-    this.renderTags(row.children[2], todo.tags || []);
+  if (!tags || tags.length === 0) {
+    cell.innerHTML = '<span class="text-muted">No tags</span>';
+    return;
+  }
+
+  tags.forEach((tag) => {
+    const badge = document.createElement('span');
+    badge.classList.add('badge', 'badge-info', 'mr-1');
+    badge.innerText = tag;
+    cell.appendChild(badge);
+  });
+}
 
     const editBtn = document.createElement('button');
     editBtn.classList.add('btn', 'btn-primary', 'mb-1');
