@@ -143,22 +143,13 @@ export default class View {
 
       </td>
     `;
+    this.renderTags(row.children[2], todo.tags);
 
-    renderTags(cell, tags) {
-  cell.innerHTML = '';
-
-  if (!tags || tags.length === 0) {
-    cell.innerHTML = '<span class="text-muted">No tags</span>';
-    return;
-  }
-
-  tags.forEach((tag) => {
-    const badge = document.createElement('span');
-    badge.classList.add('badge', 'badge-info', 'mr-1');
-    badge.innerText = tag;
-    cell.appendChild(badge);
-  });
-}
+    const completed = document.createElement('input');
+    completed.type = 'checkbox';
+    completed.checked = todo.completed;
+    completed.onclick = () => this.toggleCompleted(todo.id);
+    row.children[3].appendChild(completed);
 
     const editBtn = document.createElement('button');
     editBtn.classList.add('btn', 'btn-primary', 'mb-1');

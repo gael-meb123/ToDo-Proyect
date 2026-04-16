@@ -18,6 +18,7 @@ export default class Modal {
     this.description.value = todo.description;
     this.tags.value = (todo.tags || []).join(', ');
     this.completed.checked = todo.completed;
+    this.alert.hide();
   }
 
   parseTags(rawTags) {
@@ -35,6 +36,8 @@ export default class Modal {
         this.alert.show('Title and description are required');
         return;
       }
+
+      this.alert.hide();
 
       $('#modal').modal('toggle');
 
